@@ -2,13 +2,15 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Untitled Document</title>
+    <title>CMS Main</title>
     <!-- Bootstrap -->
 	<!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
 	<link href="css/bootstrap-3.3.4.css" rel="stylesheet" type="text/css">
@@ -33,6 +35,8 @@
               <li><a href="#about">About</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="register.html">Register</a></li>
         </ul>
 
       </div>
@@ -52,22 +56,22 @@ SELECT home, about, services, contact FROM content;
 <div class="container-fluid">
   <div class="row-fluid">
 <div id="home" class="col-md-12">
-<c:out value="${row.home}"/>
+<c:out value="${row.home}" escapeXml="false"/>
 </div>
 </div>
 <div class="row-fluid">
 <div id="about" class="col-md-12">
-<c:out value="${row.about}"/>
+<c:out value="${row.about}"  escapeXml="false"/>
 </div>
 </div>
 <div class="row-fluid">
 <div id="services" class="col-md-12">
-<c:out value="${row.services}"/>
+<c:out value="${row.services}" escapeXml="false"/>
 </div>
 </div>
 <div class="row-fluid">
 <div id="contact" class="col-md-12">
-<c:out value="${row.contact}"/>
+<c:out value="${row.contact}" escapeXml="false"/>
 </div>
 </div>
 </div>

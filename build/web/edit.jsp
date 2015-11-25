@@ -2,11 +2,33 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%
+  Cookie cookie = null;
+   Cookie[] cookies = null;
+   boolean foundCookie = false;
+   // Get an array of Cookies associated with this domain
+   cookies = request.getCookies();
+   if( cookies != null ){
+       for (int i = 0; i < cookies.length; i++){
+         cookie = cookies[i];
+        if( cookie.getName().equals("email")){
+             // out.print("Email Cookie found!");
+             foundCookie = true;    
+        } 
+      }
+   }
+    else{
+       out.print("No Cookies for you!");
+   }
+   if(!foundCookie){
+       out.print("<script>window.location = 'login.html'</script>");
+   }
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSP Page</title>
+<title>CMS Edit</title>
 </head>
 <body>
 
